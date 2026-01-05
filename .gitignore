@@ -1,0 +1,17 @@
+﻿# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar carpetas de Visual Studio
+.vs/
+
+# Ignorar compilados de .NET
+**/bin/
+**/obj/
+
+# Ignorar dependencias de frontend
+**/node_modules/
+dist/
+
+# Ignorar archivos de entorno
+.env
