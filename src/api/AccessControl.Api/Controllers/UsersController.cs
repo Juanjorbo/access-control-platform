@@ -18,7 +18,7 @@ public class UsersController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetUsers()
     {
-        var users = await _db.Users.ToListAsync();
+        var users = await _db.Users.AsNoTracking().ToListAsync();
         return Ok(users);
     }
 }
