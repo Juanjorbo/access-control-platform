@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ../../
+      dockerfile: infra/docker/Dockerfile.api
+    ports:
+      - "5000:8080"
+    depends_on:
+      - db
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+
+  db:
+    image: postgres:15
+    container_name: access-control-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: accesscontrol
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
